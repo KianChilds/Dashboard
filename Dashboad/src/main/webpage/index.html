@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Dashboard V0.1</title>
+
+    <style>
+     body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+     }
+
+     .topnav {
+        overflow: hidden;
+        background-color: #333;
+        display:flex;
+        flex-direction:row;
+
+     }
+
+     .topnav a {
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+     }
+
+     .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+     }
+
+     .topnav a.active {
+        background-color: #04AA6D;
+        color: white;
+     }
+
+     * {
+        font-family: Arial;
+        font-size: 100%;
+      }
+    </style>
+</head>
+
+<script src="js/main.js"></script>
+
+<body style="margin:0px">
+    <div title="" style="width:100%;overflow:hidden; height:44px;" class = "topnav">
+        <p style="width:44px; height:inherit; display:inline-block; background-color: #f2f2f2; order:-1; margin-top: 0%; margin-bottom: 0%;" id=""></p>
+        <a onclick="changeDisplayToHome()">Home</a>
+        <a onclick="changeDisplayToMotors()">Motors</a>
+    </div>
+
+    <script>startStatusUpdating()</script>
+
+    <iframe src="home.html" style="width:100%;height:100%; border:none" id="mainDisplay"></iframe>
+</body>
+
