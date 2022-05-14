@@ -1,14 +1,5 @@
 let motorIds = []
 
-async function isReady(){
-    response = await fetch(apiUrl+"status")
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-        return data});
-    return response.ready
-}
-
 async function getMotorIds(x){
 
     return fetch(apiUrl+"motor/ids")
@@ -68,22 +59,6 @@ async function wait(){
 }
 
 async function startJS(){
-    ready = false;
-    while(!ready){
-        try{
-            if(await isReady()){
-                ready = true
-            }else{
-                ready = false
-            }
-        }catch(e){
-            if(e === "TypeError: Failed to fetch")
-            document.getElementById("status").innerHTML = "No connection"  
-            console.log("E: "+e)
-        }
-    }
-    document.getElementById("status").innerHTML = "Ready"
-
     await addMotors()
     dispMotor(motorIds[0], "motorDisp")
 }
