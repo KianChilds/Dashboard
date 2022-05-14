@@ -104,6 +104,7 @@ public class ConfigLoader {
         try {
             return objectMapper.readValue(f, Config.class);
         } catch (JsonProcessingException e){
+            e.printStackTrace();
             System.out.println("Couldn't read config");
             return null;
         } catch (IOException e) {
