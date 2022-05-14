@@ -1,10 +1,6 @@
-package com.example.NetworkTableAPI;
+package com.NetworkTableAPI;
 
-import java.util.HashMap;
 import java.util.Set;
-
-import com.example.reports.Motor;
-import com.example.reports.StatusReport;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,30 +9,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Package {
-    private StatusReport curStatus = new StatusReport();
-    private HashMap<Integer, Motor> motors = new HashMap<>();
-
     public Package(){
-        for(int i =0; i< 10; i++){
-            motors.put(i, new Motor(i));
-        }
     }
 
     @CrossOrigin
     @GetMapping("status")
-    public StatusReport getStatus(){
-        return curStatus;
+    public Integer getStatus(){
+        return 0;
     }
 
     @CrossOrigin
     @GetMapping("motor/ids")
     public Set<Integer> getIds(){
-        return motors.keySet();
+        return null;
     }
 
     @CrossOrigin
     @GetMapping("motor/{id}")
-    public Motor getMotor(@PathVariable Integer id){
-        return motors.get(id);
+    public Integer getMotor(@PathVariable Integer id){
+        return 1;
     }
 }
