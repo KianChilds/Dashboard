@@ -85,7 +85,7 @@ public class MotorFactory {
       motor.set(TalonFXControlMode.PercentOutput, 0);
       motor.neutralOutput();
       // set motor to factory defaults
-      //motor.configAllSettings(motorConfig.talonFXConfig, Constants.CANTimeout); TODO: REPLACE LINE
+      motor.configAllSettings(motorConfig.getTalonConfiguration(), Constants.CANTimeout);
   
       // set to brake mode
       motor.setNeutralMode(motorConfig.neutralMode);
