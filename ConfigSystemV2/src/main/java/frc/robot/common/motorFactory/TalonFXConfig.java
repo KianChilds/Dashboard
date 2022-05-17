@@ -19,6 +19,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TalonFXConfig {
     @JsonProperty("name")
     public String name = "";
+
+    @JsonIgnore
+    public final String type = "TalonFX";
     
     @JsonProperty("id")
     public int id = -1;
@@ -238,7 +241,7 @@ public class TalonFXConfig {
     }
 
     @JsonIgnore
-    public TalonFXConfiguration getTalonConfigConfiguration(){
+    public TalonFXConfiguration getTalonConfiguration(){
         TalonFXConfiguration cfg = new TalonFXConfiguration();
         cfg.slot0 = slot0;
         cfg.slot1 = slot1;

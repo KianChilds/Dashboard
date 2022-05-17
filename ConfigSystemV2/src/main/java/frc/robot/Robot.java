@@ -4,11 +4,18 @@
 
 package frc.robot;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.apache.catalina.core.ApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.config.Config;
 import frc.robot.config.configHandling.ConfigLoader;
+import frc.robot.dashboard.WebApp;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -30,7 +37,19 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     Config config = new ConfigLoader().getConfig();
+
+    startDashboard(config);
+
     m_robotContainer = new RobotContainer();
+  }
+
+  private void startDashboard(Config cfg){
+    SpringApplication dashboardApp = new SpringApplication(WebApp.class);
+
+    WebApp.setConfg(cfg);
+
+    Thread dashboard = new Thread(() -> {dashboardApp.run("");});
+    dashboard.start();
   }
 
   /**
