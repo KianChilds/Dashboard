@@ -1,7 +1,9 @@
 plugins {
+    id 'org.springframework.boot' version '2.6.7'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id "java"
     id "edu.wpi.first.GradleRIO" version "2022.4.1"
-}
+} 
 
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
@@ -48,6 +50,9 @@ def includeDesktopSupport = false
 // Defining my dependencies. In this case, WPILib (+ friends), and vendor libraries.
 // Also defines JUnit 4.
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
     implementation wpi.java.deps.wpilib()
     implementation wpi.java.vendor.java()
 
