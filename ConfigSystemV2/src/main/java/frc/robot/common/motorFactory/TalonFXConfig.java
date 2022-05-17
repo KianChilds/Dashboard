@@ -238,7 +238,7 @@ public class TalonFXConfig {
     }
 
     @JsonIgnore
-    public TalonFXConfiguration getTalonConfigUConfiguration(){
+    public TalonFXConfiguration getTalonConfigConfiguration(){
         TalonFXConfiguration cfg = new TalonFXConfiguration();
         cfg.slot0 = slot0;
         cfg.slot1 = slot1;
