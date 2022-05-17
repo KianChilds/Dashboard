@@ -21,6 +21,8 @@ public class RangeConfig {
     @JsonProperty("increment")
     public double increment;
 
+    public RangeConfig(){}
+
     public RangeConfig(RangeType type, double def, double min, double max){
         if(type == RangeType.INT){
             increment = 1;
