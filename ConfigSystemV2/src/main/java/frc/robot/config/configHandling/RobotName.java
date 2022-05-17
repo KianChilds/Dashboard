@@ -3,9 +3,11 @@ package frc.robot.config.configHandling;
 import frc.robot.config.Config;
 import frc.robot.config.RuntimeConfig;
 import frc.robot.config.robots.MuleConfig;
+import frc.robot.config.robots.SimConfig;
 
 public enum RobotName {
-    MULE(0);
+    MULE(0),
+    SIMULATION(1);
     int id;
     RobotName(int i){
         id = i;
@@ -15,6 +17,8 @@ public enum RobotName {
         switch(id){
             case 0:
             return new MuleConfig();
+            case 1:
+            return new SimConfig();
             default:
             return null;
         }

@@ -11,8 +11,6 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.nio.charset.StandardCharsets;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 public class RuntimeConfig {
   private ResourceFile resources;
 
@@ -25,17 +23,24 @@ public class RuntimeConfig {
   public String remote;
   public String macAddress;
 
-  public RuntimeConfig(ResourceFile resources) {
-    this.resources = resources;
+  public RuntimeConfig(ResourceFile resources, boolean desktop) {
+    if(desktop){
+      deployHost = "Desktop Testing Host";
+      deployTime = "Desktop Testing Time";
+      macAddress = "0:00:00:00:00:00";
+      return;
+    }else{
+      this.resources = resources;
 
-    deployHost = readFromFile("deployhost.txt", true);
-    deployTime = readFromFile("deploytime.txt", true);
-    // buildTime = readFromFile("buildtime.txt", false);
-    // branch = readFromFile("branch.txt", false);
-    // commit = readFromFile("commit.txt", false);
-    // changes = readFromFile("changes.txt", false);
-    // remote = readFromFile("remote.txt", false);
-    macAddress = identifyRobot();
+      deployHost = readFromFile("deployhost.txt", true);
+      deployTime = readFromFile("deploytime.txt", true);
+      // buildTime = readFromFile("buildtime.txt", false);
+      // branch = readFromFile("branch.txt", false);
+      // commit = readFromFile("commit.txt", false);
+      // changes = readFromFile("changes.txt", false);
+      // remote = readFromFile("remote.txt", false);
+      macAddress = identifyRobot();
+    }
   }
 
   private String readFromFile(String filename, boolean isDeploy) {

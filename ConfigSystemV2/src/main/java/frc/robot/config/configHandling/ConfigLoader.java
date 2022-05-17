@@ -14,12 +14,12 @@ import frc.robot.config.RuntimeConfig;
 
 public class ConfigLoader {
     static ObjectMapper objectMapper = new ObjectMapper();
-    private static final String configPath = "/home/lvuser/config.json";
+    private static String configPath = "/home/lvuser/config.json";
 
     public Config getConfig(){
-        RuntimeConfig rc = new RuntimeConfig((String s) -> Main.class.getResourceAsStream(s));
+        RuntimeConfig rc = new RuntimeConfig((String s) -> Main.class.getResourceAsStream(s), Config.deskTopTesting);
+        if(Config.deskTopTesting) configPath = "C:/Users/Kianm/Documents/GitHub/Dashboard/config.json";
         
-        System.out.println(Filesystem.getDeployDirectory());
 
         RobotName robotName = RobotDetector.getRobotName(rc.macAddress);
 
