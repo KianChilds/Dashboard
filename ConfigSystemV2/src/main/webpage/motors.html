@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Dashboard V0.1</title>
+
+    <style>
+     body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<script src="js/main.js"></script>
+<script src="js/motorDisp.js"></script>
+
+<body>
+
+    <p id="status">Not ready</p>
+    <label for="motorSelect">Selected motor</label>
+    <select name="motorSelect" id="motorSelector" oninput="selectMotor()">
+    </select>
+
+    <div id="motorDisp">
+    </div>
+
+    <script>startMotorJS()</script>
+</body>
+

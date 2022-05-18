@@ -4,11 +4,7 @@
 
 package frc.robot;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import org.apache.catalina.core.ApplicationContext;
 import org.springframework.boot.SpringApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;

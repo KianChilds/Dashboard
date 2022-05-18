@@ -185,8 +185,9 @@ public class TalonFXConfig {
 
     public TalonFXConfig(){}
 
-    public TalonFXConfig(int id){
+    public TalonFXConfig(int id, String name){
         this.id = id;
+        this.name = name;
     }
 
     public class PID{

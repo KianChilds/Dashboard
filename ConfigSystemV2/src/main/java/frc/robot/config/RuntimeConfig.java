@@ -22,12 +22,14 @@ public class RuntimeConfig {
   public String changes;
   public String remote;
   public String macAddress;
+  public String batteryName;
 
   public RuntimeConfig(ResourceFile resources, boolean desktop) {
     if(desktop){
       deployHost = "Desktop Testing Host";
       deployTime = "Desktop Testing Time";
       macAddress = "0:00:00:00:00:00";
+      batteryName = "Battery UnSpecified";
       return;
     }else{
       this.resources = resources;
