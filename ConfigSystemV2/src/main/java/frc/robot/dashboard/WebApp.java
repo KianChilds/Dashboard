@@ -1,5 +1,7 @@
 package frc.robot.dashboard;
 
+import java.util.Map;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,11 +28,13 @@ public class WebApp {
 
     @GetMapping("motorConfigs")
     @CrossOrigin
-    public TalonFXConfig[] getMotorConfigs(){
-        return new TalonFXConfig[]{cfg.driveTrainConfig.rightLead, 
-            cfg.driveTrainConfig.rightFollow, 
-            cfg.driveTrainConfig.leftLead, 
-            cfg.driveTrainConfig.leftFollow};
+    public Map<String, TalonFXConfig> getMotorConfigs(){
+        return Map.of(
+            "right lead",   cfg.driveTrainConfig.rightLead,
+            "right follow", cfg.driveTrainConfig.rightFollow,
+            "left lead",    cfg.driveTrainConfig.leftLead,
+            "left follow",  cfg.driveTrainConfig.leftFollow
+        );
     }
 
     public class Status{

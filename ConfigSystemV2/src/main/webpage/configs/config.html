@@ -16,18 +16,18 @@
         }
     </style>
 
-    <script src="..\js\main.js" id="l"></script>
+    <script src="..\js\main.js"></script>
     <script src="config.js"></script>
 </head>
 
-<body>
+<body style="height:100%; width:100%">
     <div style="margin:10px;">
         <label for="configSelector">Select config to view</label>
         <select id="configSelector" onchange="configSelected()">
             <option value="none" selected disabled hidden>Select an Option</option>
         </select>
     </div>
-    <iframe src="" id="configIframe"></iframe>
+    <iframe src="" id="configIframe" style="border: 0ch; height:100%; width:100%"></iframe>
 
     <script>startConfigJS()</script>
 </body>

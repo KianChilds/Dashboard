@@ -1,5 +1,6 @@
 package frc.robot.subsystems.driveTrain;
 
+import com.ctre.phoenix.motorcontrol.can.SlotConfiguration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import frc.robot.common.motorFactory.TalonFXConfig;
@@ -16,6 +17,13 @@ public class DriveTrainConfig {
     @JsonProperty("left-lead-motor")
     public TalonFXConfig leftLead = new TalonFXConfig(2,  "Left Lead");
     
+    {
+        leftLead.slot0 = new SlotConfiguration();
+        leftLead.slot0.kP = 0.2;
+        leftLead.slot0.kI = 0.2;
+        leftLead.slot0.kD = 0.2;
+    }
+
     @JsonProperty("left-follow-motor")
     public TalonFXConfig leftFollow = new TalonFXConfig(3, "Left Follow");
 

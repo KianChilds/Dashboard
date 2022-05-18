@@ -4,6 +4,10 @@ configNameToHTML = {
     "Climber":"climber\\ClimberConfig.html"
 }
 
+function displayMotor(id, motor){
+
+}
+
 function configSelected(){
     let targConfig = document.getElementById("configSelector").value
     document.getElementById("configIframe").src = targConfig
@@ -18,6 +22,14 @@ function populateDropDown(){
     }
 }
 
+async function testmotorget(){
+    response = await fetch(apiUrl+"motorConfigs")
+    .then(response => response.json())
+    .then(data => {return data});
+    return response
+}
+
 async function startConfigJS(){
     populateDropDown()
+    console.log(await testmotorget());
 }
